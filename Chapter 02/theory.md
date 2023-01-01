@@ -60,3 +60,7 @@
 ## What is the `dist` folder?
 
 - dist folder contains dynamically generated files created by parcel. it connect bundled/build html,css, js files created by parcel when we run npx parcel command. it also contains a mao file which is source map file that tell the browser how to locate our original source code from bundled code.
+
+## what is browserslist?
+
+- it is a tool that allows us to specify why browsers can be supported by our application.
