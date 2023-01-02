@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: "Segoe UI";
+}
+#header {
+  background-color: orange;
+  padding: 1rem;
+}
+h3 {
+  font-weight: 400;
+}
