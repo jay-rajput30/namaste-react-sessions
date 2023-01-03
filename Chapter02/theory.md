@@ -13,7 +13,8 @@
 
 ##What is NPX?
 
-- NPM is a tool what will execute node package. it does not matters if the package is installed locally or globally. it will execute the package name we ive without installing it. npm will install node package but to execute it we have to configure the path in package.json or include it in script section.
+- NPM is a tool what will execute node package. it does not matters if the package is installed locally or globally. it will execute the package name we ive without installing it.
+- npm will install node package but to execute it we have to configure the path in package.json or include it in script section.
 
 ## What is difference between `dependencies` vs `devDependencies`?
 
@@ -43,24 +44,39 @@
 
 ## What is `.gitignore`? What should we add and not add into it?
 
-- .gitignore file tells git which files to ignore whilecommiting project to git repository. we should not add files that needs to be added to the git respoitory. we should add parcel-cache, dist, mode_modules to .gitignore as they dont need to be updated to git repo. We should not add package.json, package-lock-json to .gitignore file as the should be added to git repository.
+- .gitignore file tells git which files to ignore whilecommiting project to git repository. we should not add files that needs to be added to the git respoitory.
+- we should add parcel-cache, dist, mode_modules to .gitignore as they dont need to be updated to git repo.
+- We should not add package.json, package-lock-json to .gitignore file as the should be added to git repository.
 
 ## What is the difference between `package.json` and `package-lock.json`?
 
-- packge.json contains the version of package with ^ or ~ sign. package-lock.json will install the exact version of the package. when we do npm i <package-name> -save, packge-lock.json will install the exact version of this package and package.json will save the package details like "^5.4.3" meaning it will support all higher major versions like 5.5, 5.6 and so on. package-lock.json is created for locking the dependency with the current version.
+- packge.json contains the version of package with ^ or ~ sign. package-lock.json will install the exact version of the package.
+- when we do npm i <package-name> -save, packge-lock.json will install the exact version of this package and package.json will save the package details like "^5.4.3" meaning it will support all higher major versions like 5.5, 5.6 and so on. package-lock.json is created for locking the dependency with the current version.
 
 ## Why should I not modify `package-lock.json`?
 
-- when we do npm install <package-name> it fetches the required dependency and installs them in the node_modules folder. package-lock.json contains the snapshot of the dependency tree and all the information needs to recreate the state of node_modules folder. when package-lock.json is present npm install with install the exact versions specified. package-lock.json contains details of all the top level dependencies that we install using npm and the associated dependencies in the form of a dependency tree. whenever we alter the dependencies the package-lock.json file is updated to reflect the current state of the dependency tree.
+- when we do npm install <package-name> it fetches the required dependency and installs them in the node_modules folder. package-lock.json contains the snapshot of the dependency tree and all the information needs to recreate the state of node_modules folder.
+- when package-lock.json is present npm install with install the exact versions specified. package-lock.json contains details of all the top level dependencies that we install using npm and the associated dependencies in the form of a dependency tree.
+- whenever we alter the dependencies the package-lock.json file is updated to reflect the current state of the dependency tree.
 
 ## What is `node_modules` ? Is it a good idea to push that on git?
 
-- node_modules is a directory where the dependencies gets installed when we run install packge using npm i command. we should not add node_modules files as it is very huge. we can instead add the package.json and package-lock.json files to the git repo using which we can install all the dependencies needed to run the project.
+- node_modules is a directory where the dependencies gets installed when we run install packge using npm i command. we should not add node_modules files as it is very huge.
+- we can instead add the package.json and package-lock.json files to the git repo using which we can install all the dependencies needed to run the project.
 
 ## What is the `dist` folder?
 
-- dist folder contains dynamically generated files created by parcel. it connect bundled/build html,css, js files created by parcel when we run npx parcel command. it also contains a mao file which is source map file that tell the browser how to locate our original source code from bundled code.
+- dist folder contains dynamically generated files created by parcel. it connect bundled/build html,css, js files created by parcel when we run npx parcel command. it also contains a map file which is source map file that tell the browser how to locate our original source code from bundled code.
 
 ## what is browserslist?
 
 - it is a tool that allows us to specify why browsers can be supported by our application.
+
+## ^ and ~ in package.json?
+
+- if our dependency has ^ version mentioned ni package.json then npm install will install the lastest minor version and likewise having ~ will install the latest patch version.
+
+## Script type in html
+
+- there are various script types like module, importmap and default. Default script type will treat script as classical jacscript script.
+- type module will specify that the script we are trying to use will support js module. Broswer does not understand es modules. We have to explicity specify type="module" in script fro browser to understand es6 modules.
