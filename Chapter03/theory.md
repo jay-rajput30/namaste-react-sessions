@@ -37,4 +37,4 @@
 
 ## {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>}
 
-- <TitleComponent/> with self closing tag is used when the tag is empty and we dont need to provide any data to TitleComponent as props. {<TitleComponent></TitleComponent>} is suitable when we want to specify some data as props to <TitleComponent/>, this data is usually accessed props.children. {Title}
+- <TitleComponent/> is a react component. {<TitleComponent></TitleComponent>} is also a react component that can contain nested elements, we can access the nested elements using props.children in TitleComponent component. {TitleComponent is a react co}
