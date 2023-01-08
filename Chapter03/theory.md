@@ -37,4 +37,4 @@
 
 ## {TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>}
 
-- <TitleComponent/> is a react component. {<TitleComponent></TitleComponent>} is also a react component that can contain nested elements, we can access the nested elements using props.children in TitleComponent component. {TitleComponent is a react co}
+- <TitleComponent/> is a react component. {<TitleComponent></TitleComponent>} is also a react component that can contain nested elements, we can access the nested elements using props.children in TitleComponent component. {TitleComponent is a react component}
