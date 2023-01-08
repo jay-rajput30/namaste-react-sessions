@@ -51,6 +51,10 @@ img {
   justify-content: center;
   align-items: center;
 }
+.footer {
+  padding: 1.2rem;
+  color: hsl(215, 20%, 65%);
+}
 .restaurant {
   border: 2px solid hsl(252, 95%, 85%);
   padding: 0.5rem;
