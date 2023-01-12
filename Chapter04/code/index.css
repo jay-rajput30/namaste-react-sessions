@@ -34,6 +34,12 @@ ul {
 img {
   max-width: 100%;
   object-fit: cover;
+  position: relative;
+}
+input {
+  padding: 0.2rem 0.5rem;
+  margin: 0.5rem 0 1rem 0;
+  font-family: inherit;
 }
 .logo {
   font-size: 2rem;
@@ -48,6 +54,7 @@ img {
 .main {
   padding: 1rem;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
@@ -69,6 +76,11 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 10px;
+}
+@media (max-width: 960px) {
+  .all-restaurants {
+    justify-content: center;
+  }
 }
 .cuisine-pills {
   display: flex;
@@ -93,11 +105,24 @@ img {
   align-items: center;
   padding-right: 1rem;
 }
+.image-container {
+  position: relative;
+}
 .rating {
   font-size: 1rem;
   font-weight: bold;
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  color: white;
+  padding: 0.3rem;
+  border-radius: 5px;
 }
 .cost {
   font-size: 1rem;
   color: #1e293b;
+}
+
+.restaurant-name {
+  text-transform: capitalize;
 }
