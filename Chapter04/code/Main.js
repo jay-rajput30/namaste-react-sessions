@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Restaurants from "./Restaurants";
 
-const Main = () => {
+export const Main = () => {
   const [restName, setRestName] = useState("");
   return (
     <main className="main">
@@ -15,5 +15,3 @@ const Main = () => {
     </main>
   );
 };
-
-export default Main;
