@@ -1,5 +1,4 @@
-import { data } from "./constants.js";
-import CuisinePills from "./CuisinePills.js";
+import CuisinePills from "./CuisinePills";
 
 const RestaurantCard = ({
   name,
@@ -39,18 +38,4 @@ const RestaurantCard = ({
   );
 };
 
-const Restaurants = ({ restName }) => {
-  const newData = restName
-    ? data.filter((item) => item.data.name.toLowerCase().includes(restName))
-    : data;
-  //   console.log(rest);
-  return (
-    <section className="all-restaurants">
-      {newData.map((item) => {
-        return <RestaurantCard key={item.data.id} {...item.data} />;
-      })}
-    </section>
-  );
-};
-
-export default Restaurants;
+export default RestaurantCard;
