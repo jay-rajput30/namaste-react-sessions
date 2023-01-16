@@ -36,10 +36,15 @@ img {
   object-fit: cover;
   position: relative;
 }
-input {
+input,
+button {
   padding: 0.2rem 0.5rem;
   margin: 0.5rem 0 1rem 0;
   font-family: inherit;
+  font-size: 1rem;
+}
+button {
+  font-weight: bold;
 }
 .logo {
   font-size: 2rem;
@@ -56,7 +61,7 @@ input {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
 }
 .footer {
   padding: 1.2rem;
@@ -125,4 +130,26 @@ input {
 
 .restaurant-name {
   text-transform: capitalize;
+}
+
+.search-container {
+  /* border: 2px solid; */
+  /* width: 50%; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+@media (max-width: 640px) {
+  .search-container {
+    /* width: 100%; */
+    justify-content: center;
+    /* flex-direction: row; */
+  }
+  .search-container > * {
+    margin: 1rem 0;
+  }
+}
+
+.search-container > * {
+  margin-right: 2rem;
 }
