@@ -1,25 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { data } from "../constants";
 import Restaurants from "./Restaurants";
+import Shimmer from "./Shimmer";
 
 export const Main = () => {
   const [restName, setRestName] = useState("");
-  const [allRest, setAllRest] = useState(data);
+  const [allRest, setAllRest] = useState([]);
+  const [filteredRest, setFilteredRest] = useState([]);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const res = await fetch(
+          "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1662566&lng=72.8525696&page_type=DESKTOP_WEB_LISTING"
+        );
+
+        const data = await res.json();
+        console.log(data.data.cards[2].data?.data?.cards);
+        setAllRest(data.data.cards[2].data?.data?.cards);
+        setFilteredRest(data.data.cards[2].data?.data?.cards);
+      } catch (e) {
+        console.error({ error: e });
+      }
+    }
+    getData();
+    // return () => {
+    //   second;
+    // };
+  }, []);
 
   const filterData = (restName, allRest, setAllRest) => {
     let resData = allRest.filter((item) =>
       item.data.name.toLowerCase().includes(restName)
     );
-    setAllRest(resData);
+    // setFilteredRest(resData);
     return resData;
   };
   // let newData = filterData(restName, allRest, setAllRest);
 
   const searchBtnClickHandler = (e) => {
-    setAllRest(filterData(restName, allRest, setAllRest));
+    setFilteredRest(filterData(restName, allRest, setAllRest));
   };
+
+  // if (allRest.length === 0) {
+  //   return <Shimmer />;
+  // }
   return (
-    // <></>
     <main className="main">
       <div className="search-container">
         <input
@@ -30,13 +56,16 @@ export const Main = () => {
         />
         <button onClick={searchBtnClickHandler}>search</button>
       </div>
-
-      <Restaurants
-        restName={restName}
-        allRest={allRest}
-        setAllRest={setAllRest}
-      />
-      {console.log({ restName, allRest })}
+      {allRest.length === 0 ? (
+        <Shimmer />
+      ) : (
+        <Shimmer />
+        // <Restaurants
+        //   restName={restName}
+        //   filteredRest={filteredRest}
+        //   setAllRest={setAllRest}
+        // />
+      )}
     </main>
   );
 };
