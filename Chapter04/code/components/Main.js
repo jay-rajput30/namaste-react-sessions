@@ -59,12 +59,11 @@ export const Main = () => {
       {allRest.length === 0 ? (
         <Shimmer />
       ) : (
-        <Shimmer />
-        // <Restaurants
-        //   restName={restName}
-        //   filteredRest={filteredRest}
-        //   setAllRest={setAllRest}
-        // />
+        <Restaurants
+          restName={restName}
+          filteredRest={filteredRest}
+          setAllRest={setAllRest}
+        />
       )}
     </main>
   );
