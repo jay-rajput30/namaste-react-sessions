@@ -1,11 +1,10 @@
 import RestaurantCard from "./RestaurantCard";
 
-const Restaurants = ({ restName, allRest, setAllRest }) => {
-  //   console.log(rest);
-
+const Restaurants = ({ restName, filteredRest, setAllRest }) => {
+  console.log({ filteredRest });
   return (
     <section className="all-restaurants">
-      {allRest.map((item) => {
+      {filteredRest.map((item) => {
         return <RestaurantCard key={item.data.id} {...item.data} />;
       })}
     </section>

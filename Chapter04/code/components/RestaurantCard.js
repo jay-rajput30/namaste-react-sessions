@@ -30,9 +30,9 @@ const RestaurantCard = ({
           {name.slice(0, 20).toLowerCase() + (name.length > 20 ? "..." : "")}
         </h2>
         <CuisinePills cuisines={cuisines} />
-        <div className="rating-container">
-          <p className="cost">Avg cost: {costForTwoString.toLowerCase()}</p>
-        </div>
+        {/* <div className="rating-container"> */}
+        <p className="cost">Avg cost: {costForTwoString.toLowerCase()}</p>
+        {/* </div> */}
       </div>
     </div>
   );
