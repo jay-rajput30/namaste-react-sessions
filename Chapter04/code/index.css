@@ -13,6 +13,15 @@ body {
   background-color: hsl(270, 100%, 98%);
   min-height: 100%;
 }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: rgba(0, 0, 0, 0.797);
+  font-weight: bold;
+}
 a {
   text-decoration: none;
   /* color: hsl(222, 47%, 11%);1 */
@@ -30,6 +39,8 @@ li {
 nav {
   padding: 0 0.7rem;
   flex: 2;
+  /* border: solid deeppink; */
+  margin-right: 2rem;
 }
 ul {
   display: flex;
@@ -56,7 +67,9 @@ button {
   border-radius: 5px;
 }
 .logo {
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  max-width: 10vw;
+  /* border: solid orangered; */
 }
 .header {
   background-color: hsl(272, 72%, 47%);
@@ -64,6 +77,7 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 .main {
   padding: 1rem;
@@ -133,7 +147,7 @@ button {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 10px;
+  gap: 16px;
 }
 
 .cuisine-pills {
@@ -163,7 +177,7 @@ button {
   margin-top: 1rem;
   padding-right: 1rem;
   position: absolute;
-  bottom: 25px;
+  bottom: 15px;
 }
 .image-container {
   position: relative;
@@ -204,4 +218,24 @@ button {
 
 .search-container > * {
   margin-right: 2rem;
+}
+
+.active-nav {
+  /* text-decoration: underline; */
+  font-weight: bold;
+}
+
+.error-img {
+  max-width: 40%;
+}
+
+.error-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.error-container h1 {
+  margin: 2rem 0;
 }

@@ -1,18 +1,19 @@
+import { CLOUDINARY_IMAGE_URL } from "../constants";
 import CuisinePills from "./CuisinePills";
 
 const RestaurantCard = ({
+  id,
   name,
   cuisines,
   costForTwoString,
   avgRating,
   cloudinaryImageId,
 }) => {
+  // console.log({ restaurantId: id });
   return (
     <div className="restaurant">
       <div className="image-container">
-        <img
-          src={`https://res.cloudinary.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_508,h_320,c_fill/${cloudinaryImageId}`}
-        />
+        <img src={CLOUDINARY_IMAGE_URL + cloudinaryImageId} />
         <span
           className="rating"
           style={{
