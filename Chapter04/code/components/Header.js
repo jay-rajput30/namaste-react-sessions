@@ -1,7 +1,10 @@
 import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+const activeClassName = "active-nav";
 
 const Logo = () => {
-  return <h2 className="logo">QuickBytes</h2>;
+  return <img className="logo" src="../assests/quickbytes.jpg" />;
 };
 
 const LoggedInUser = () => {
@@ -12,13 +15,34 @@ const Navbar = () => {
     <nav>
       <ul>
         <li>
-          <a href="/">Home</a>
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              isActive ? activeClassName : undefined
+            }
+          >
+            home
+          </NavLink>
         </li>
         <li>
-          <a href="/about">Wishlist</a>
+          <NavLink
+            to="about"
+            className={({ isActive }) =>
+              isActive ? activeClassName : undefined
+            }
+          >
+            about
+          </NavLink>
         </li>
         <li>
-          <a href="/blog">Cart</a>
+          <NavLink
+            to="contact"
+            className={({ isActive }) =>
+              isActive ? activeClassName : undefined
+            }
+          >
+            contact
+          </NavLink>
         </li>
       </ul>
     </nav>

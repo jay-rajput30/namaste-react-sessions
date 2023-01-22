@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 
 const Restaurants = ({ restName, filteredRest, setAllRest }) => {
-  console.log({ filteredRest });
   return (
     <section className="all-restaurants">
       {filteredRest.map((item) => {
-        return <RestaurantCard key={item.data.id} {...item.data} />;
+        return (
+          <Link key={item.data.id} to={`restaurant/${item.data.id}`}>
+            <RestaurantCard {...item.data} />
+          </Link>
+        );
       })}
     </section>
   );
