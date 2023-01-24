@@ -68,7 +68,7 @@ button {
 }
 .logo {
   /* font-size: 2rem; */
-  max-width: 10vw;
+  max-width: 100%;
   /* border: solid orangered; */
 }
 .header {
@@ -238,4 +238,67 @@ button {
 
 .error-container h1 {
   margin: 2rem 0;
+}
+
+/* .restaurant page styles */
+
+.restaurant-container {
+  display: flex;
+  padding: 1rem;
+}
+
+.restaurant-left,
+.restaurant-right {
+  /* flex: 1; */
+  /* border: solid orange; */
+}
+.restaurant-left {
+  /* position: sticky; */
+  /* top: 10; */
+  flex: 1;
+  margin-top: 1rem;
+}
+.restaurant-left > * {
+  margin-bottom: 1rem;
+}
+.restaurant-right {
+  /* overflow: auto;   */
+  flex: 2;
+}
+.restaurant-name {
+  font-size: 2.5rem;
+  /* margin-bottom: 1rem; */
+}
+/* restaurant page styles */
+
+.food-container {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 1rem 1rem 0.5rem 1rem;
+  max-width: 80%;
+}
+
+.food-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  flex: 1;
+}
+.food-image {
+  max-width: 20%;
+  flex: 1;
+}
+
+/* .food-description {
+} */
+
+.food-price {
+  font-weight: bold;
+}
+
+.food-details {
+  font-size: 1.1rem;
+  margin: 1rem 0;
 }

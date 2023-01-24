@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { CLOUDINARY_IMAGE_URL, data, FETCH_MENU } from "../constants";
+import { CLOUDINARY_IMAGE_URL, FETCH_MENU } from "../constants";
+import Food from "./Food";
 
 const Restaurant = () => {
   const [restaurant, setRestaurant] = useState({});
@@ -24,14 +25,29 @@ const Restaurant = () => {
   }, []);
 
   return restaurant ? (
-    <div>
-      <h1>{restaurant?.name}</h1>
-      <img src={CLOUDINARY_IMAGE_URL + `${restaurant?.cloudinaryImageId}`} />
-      <div>
+    <div className="restaurant-container">
+      <section className="restaurant-left">
+        <h1 className="restaurant-name">{restaurant?.name}</h1>
+        <h3>
+          {restaurant?.area}, {restaurant?.city}
+        </h3>
+        <h4>{restaurant?.costForTwoMsg}</h4>
+        <img src={CLOUDINARY_IMAGE_URL + `${restaurant?.cloudinaryImageId}`} />
+      </section>
+
+      <section className="restaurant-right">
         {Object.values(restaurant?.menu?.items || {}).map((item) => {
-          return <p key={item?.id}>{item?.name}</p>;
+          return (
+            <Food
+              key={item?.id}
+              name={item?.name}
+              description={item?.description}
+              cloudinaryImageId={item?.cloudinaryImageId}
+              price={item?.price}
+            />
+          );
         })}
-      </div>
+      </section>
     </div>
   ) : (
     <p>LOADING...</p>

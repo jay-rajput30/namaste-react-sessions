@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { createRoot } from "react-dom/client";
 import Footer from "./components/Footer";
 import { Header as MyHeader } from "./components/Header";
@@ -13,14 +13,16 @@ import {
   Outlet,
   RouterProvider,
 } from "react-router-dom";
-import Default from "./components/Default";
+// import Default from "./components/Default";
 import Restaurant from "./components/Restaurant";
+import Login from "./components/Login";
 
 const root = createRoot(document.getElementById("root"));
 const App = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="container">
-      <MyHeader />
+      <MyHeader isLoggedIn={isLoggedIn} />
       <Outlet />
       <Footer />
     </div>
@@ -39,5 +41,6 @@ const approuter = createBrowserRouter([
       { path: "/restaurant/:restId", element: <Restaurant /> },
     ],
   },
+  { path: "login", element: <Login /> },
 ]);
 root.render(<RouterProvider router={approuter} />);
