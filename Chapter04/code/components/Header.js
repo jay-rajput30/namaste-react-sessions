@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
-
+import { NavLink, useNavigate } from "react-router-dom";
+// import logo from "../assets/logo.png";
+let logo = require("../assets/logo.jpg");
+// import error from "../assests/error.jpg";
 const activeClassName = "active-nav";
 
 const Logo = () => {
-  return <img className="logo" src="../assests/quickbytes.jpg" />;
+  return <img className="logo" src={logo} />;
 };
-
+// src="../assets/logo.png"
 const LoggedInUser = () => {
   return true;
 };
@@ -48,11 +50,11 @@ const Navbar = () => {
     </nav>
   );
 };
-const Header = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
+const Header = ({ isLoggedIn }) => {
+  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const navigate = useNavigate();
   const btnClickHandler = () => {
-    setIsLoggedIn(isLoggedIn ? false : true);
+    navigate("/login");
   };
   return (
     <header className="header">
