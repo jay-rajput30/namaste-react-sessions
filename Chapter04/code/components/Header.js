@@ -50,10 +50,13 @@ const Navbar = () => {
     </nav>
   );
 };
-const Header = ({ isLoggedIn }) => {
+const Header = ({ isLoggedIn, setIsLoggedIn }) => {
   // const [isLoggedIn, setIsLoggedIn] = useState(true);
+  console.log({ isLoggedIn });
   const navigate = useNavigate();
   const btnClickHandler = () => {
+    console.log({ insideFunc: isLoggedIn });
+    setIsLoggedIn(true);
     navigate("/login");
   };
   return (
@@ -68,7 +71,7 @@ const Header = ({ isLoggedIn }) => {
           width: "5vw",
         }}
       >
-        {isLoggedIn ? "logout" : "login"}
+        {isLoggedIn === true ? "login" : "logout"}
       </button>
     </header>
   );

@@ -22,7 +22,7 @@ const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="container">
-      <MyHeader isLoggedIn={isLoggedIn} />
+      <MyHeader setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Outlet />
       <Footer />
     </div>
