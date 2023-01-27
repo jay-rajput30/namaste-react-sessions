@@ -1,13 +1,17 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { data } from "../constants";
 import Restaurants from "./Restaurants";
 import Shimmer from "./Shimmer";
 
-export const Main = () => {
+export const Main = ({ isLoggedIn, setIsLoggedIn }) => {
   const [restName, setRestName] = useState("");
   const [allRest, setAllRest] = useState([]);
   const [filteredRest, setFilteredRest] = useState([]);
-
+  // const {
+  //   state: { loggedIn },
+  // } = useLocation();
+  // console.log(loggedIn);
   useEffect(() => {
     async function getData() {
       try {
@@ -24,10 +28,12 @@ export const Main = () => {
       }
     }
     getData();
-    // return () => {
-    //   second;
-    // };
   }, []);
+
+  // TODO: pass state through react router from login to home page
+  // useEffect(() => {
+  //   setIsLoggedIn(true);
+  // }, [isLoggedIn]);
 
   const filterData = (restName, allRest, setAllRest) => {
     let resData = allRest.filter((item) =>

@@ -16,15 +16,19 @@ import {
 // import Default from "./components/Default";
 import Restaurant from "./components/Restaurant";
 import Login from "./components/Login";
+import ChildClass from "./components/ChildClass";
+import ChildClass2 from "./components/ChildClass2";
 
 const root = createRoot(document.getElementById("root"));
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
     <div className="container">
-      <MyHeader isLoggedIn={isLoggedIn} />
+      <MyHeader setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Outlet />
       <Footer />
+      <ChildClass />
+      <ChildClass2 name="Jay Rajput" />
     </div>
   );
 };

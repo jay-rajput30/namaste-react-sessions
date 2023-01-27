@@ -4,6 +4,15 @@ import * as Yup from "yup";
 
 const Login = () => {
   const navigate = useNavigate();
+
+  const buttonSubmitHandler = (values) => {
+    if (values.email === "test@gmail.com" && values.password === "test") {
+      navigate("/", { state: { loggedIn: true } });
+      // setIsLoggedIn(true);
+    } else {
+      alert("incorrect credentials");
+    }
+  };
   return (
     <Formik
       initialValues={{ email: "", password: "" }}
@@ -11,16 +20,7 @@ const Login = () => {
         email: Yup.string().required("email is required"),
         password: Yup.string().required("password is required"),
       })}
-      //   onSubmit={({ values }) => {
-      //     console.log({ values: JSON.stringify(values) });
-      //   }}
-      onSubmit={(values, { setSubmitting }) => {
-        if (values.email === "test@gmail.com" && values.password === "test") {
-          navigate("/");
-        } else {
-          alert("incorrect credentials");
-        }
-      }}
+      onSubmit={buttonSubmitHandler}
     >
       <Form>
         <div className="form-field">
