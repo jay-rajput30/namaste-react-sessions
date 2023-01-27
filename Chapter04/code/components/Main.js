@@ -8,10 +8,10 @@ export const Main = ({ isLoggedIn, setIsLoggedIn }) => {
   const [restName, setRestName] = useState("");
   const [allRest, setAllRest] = useState([]);
   const [filteredRest, setFilteredRest] = useState([]);
-  const {
-    state: { loggedIn },
-  } = useLocation();
-  console.log(loggedIn);
+  // const {
+  //   state: { loggedIn },
+  // } = useLocation();
+  // console.log(loggedIn);
   useEffect(() => {
     async function getData() {
       try {
