@@ -16,8 +16,8 @@ import {
 // import Default from "./components/Default";
 import Restaurant from "./components/Restaurant";
 import Login from "./components/Login";
-import ChildClass from "./components/ChildClass";
-import ChildClass2 from "./components/ChildClass2";
+// import ChildClass from "./components/ChildClass";
+// import ChildClass2 from "./components/ChildClass2";
 
 const root = createRoot(document.getElementById("root"));
 const App = () => {
@@ -27,8 +27,8 @@ const App = () => {
       <MyHeader setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Outlet />
       <Footer />
-      <ChildClass />
-      <ChildClass2 name="Jay Rajput" />
+      {/* <ChildClass />
+      <ChildClass2 name="Jay Rajput" /> */}
     </div>
   );
 };
