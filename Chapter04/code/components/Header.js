@@ -1,14 +1,12 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
-// import logo from "../assets/logo.png";
+import { useLogin } from "../contexts/LoginProvider";
 let logo = require("../assets/logo.jpg");
-// import error from "../assests/error.jpg";
 const activeClassName = "active-nav";
 
 const Logo = () => {
   return <img className="logo" src={logo} />;
 };
-// src="../assets/logo.png"
 const LoggedInUser = () => {
   return true;
 };
@@ -51,7 +49,7 @@ const Navbar = () => {
   );
 };
 const Header = ({ isLoggedIn, setIsLoggedIn }) => {
-  // const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const { loggedInUser } = useLogin();
   console.log({ isLoggedIn });
   const navigate = useNavigate();
   const btnClickHandler = () => {
@@ -71,7 +69,7 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
           width: "5vw",
         }}
       >
-        {isLoggedIn === true ? "login" : "logout"}
+        {loggedInUser.loginStatus === true ? "logout" : "login"}
       </button>
     </header>
   );

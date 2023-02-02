@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { CLOUDINARY_IMAGE_URL, FETCH_MENU } from "../constants";
+import { useLogin } from "../contexts/LoginProvider";
 import Food from "./Food";
 
 const Restaurant = () => {
   const [restaurant, setRestaurant] = useState({});
   const { restId } = useParams();
+  const { loggedInUser } = useLogin();
 
+  console.log({ loggedInUser });
   const fetchUrl = FETCH_MENU + restId;
   useEffect(() => {
     try {
