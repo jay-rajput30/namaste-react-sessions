@@ -11,6 +11,7 @@ import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Restaurant from "./components/Restaurant";
 import Login from "./components/Login";
 import LoginProvider from "./contexts/LoginProvider";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const root = createRoot(document.getElementById("root"));
 const App = () => {
@@ -30,10 +31,24 @@ const approuter = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: <Main /> },
+      {
+        path: "/",
+        element: (
+          <ProtectedRoute>
+            <Main />
+          </ProtectedRoute>
+        ),
+      },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
-      { path: "/restaurant/:restId", element: <Restaurant /> },
+      {
+        path: "/restaurant/:restId",
+        element: (
+          <ProtectedRoute>
+            <Restaurant />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   { path: "login", element: <Login /> },

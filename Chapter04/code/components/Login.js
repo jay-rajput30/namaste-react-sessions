@@ -43,6 +43,10 @@ const Login = () => {
             <ErrorMessage name="password" />
           </div>
           <button type="submit">submit</button>
+          {/* TODO: implement guest login feature */}
+          <button type="submit" className="guest">
+            guest
+          </button>
         </Form>
       </Formik>
     </LoginProvider>
