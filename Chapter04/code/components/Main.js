@@ -1,37 +1,13 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import { data } from "../constants";
-import useData from "../utils/useData";
+import { useLogin } from "../contexts/LoginProvider";
+import useData from "../hooks/useData";
 import Restaurants from "./Restaurants";
 import Shimmer from "./Shimmer";
 export const Main = ({ isLoggedIn, setIsLoggedIn }) => {
   const [restName, setRestName] = useState("");
-  // const [filteredRest, setFilteredRest] = useState([]);
   const { allRest, setAllRest, filteredRest, setFilteredRest } = useData();
-  // useEffect(() => {
-  //   setFilteredRest(allRest);
-  // }, []);
-  // const {
-  //   state: { loggedIn },
-  // } = useLocation();
-  // console.log(loggedIn);
-  // useEffect(() => {
-  //   async function getData() {
-  //     try {
-  //       const res = await fetch(
-  //         "https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1662566&lng=72.8525696&page_type=DESKTOP_WEB_LISTING"
-  //       );
-
-  //       const data = await res.json();
-  //       console.log(data.data.cards[2].data?.data?.cards);
-  //       setAllRest(data.data.cards[2].data?.data?.cards);
-  //       setFilteredRest(data.data.cards[2].data?.data?.cards);
-  //     } catch (e) {
-  //       console.error({ error: e });
-  //     }
-  //   }
-  //   getData();
-  // }, []);
 
   // TODO: pass state through react router from login to home page
   // useEffect(() => {
@@ -42,18 +18,14 @@ export const Main = ({ isLoggedIn, setIsLoggedIn }) => {
     let resData = allRest.filter((item) =>
       item.data.name.toLowerCase().includes(restName)
     );
-    // setFilteredRest(resData);
+
     return resData;
   };
-  // let newData = filterData(restName, allRest, setAllRest);
 
   const searchBtnClickHandler = (e) => {
     setFilteredRest(filterData(restName, allRest, setAllRest));
   };
 
-  // if (allRest.length === 0) {
-  //   return <Shimmer />;
-  // }
   return (
     <main className="main">
       <div className="search-container">

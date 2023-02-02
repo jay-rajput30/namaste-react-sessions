@@ -7,17 +7,11 @@ import { Main } from "./components/Main";
 import Error from "./components/Error";
 import { About } from "./components/About";
 import Contact from "./components/Contact";
-import {
-  createBrowserRouter,
-  Navigate,
-  Outlet,
-  RouterProvider,
-} from "react-router-dom";
-// import Default from "./components/Default";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Restaurant from "./components/Restaurant";
 import Login from "./components/Login";
-// import ChildClass from "./components/ChildClass";
-// import ChildClass2 from "./components/ChildClass2";
+import LoginProvider from "./contexts/LoginProvider";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 const root = createRoot(document.getElementById("root"));
 const App = () => {
@@ -27,8 +21,6 @@ const App = () => {
       <MyHeader setIsLoggedIn={setIsLoggedIn} isLoggedIn={isLoggedIn} />
       <Outlet />
       <Footer />
-      {/* <ChildClass />
-      <ChildClass2 name="Jay Rajput" /> */}
     </div>
   );
 };
@@ -39,12 +31,30 @@ const approuter = createBrowserRouter([
     element: <App />,
     errorElement: <Error />,
     children: [
-      { path: "/", element: <Main /> },
+      {
+        path: "/",
+        element: (
+          <ProtectedRoute>
+            <Main />
+          </ProtectedRoute>
+        ),
+      },
       { path: "about", element: <About /> },
       { path: "contact", element: <Contact /> },
-      { path: "/restaurant/:restId", element: <Restaurant /> },
+      {
+        path: "/restaurant/:restId",
+        element: (
+          <ProtectedRoute>
+            <Restaurant />
+          </ProtectedRoute>
+        ),
+      },
     ],
   },
   { path: "login", element: <Login /> },
 ]);
-root.render(<RouterProvider router={approuter} />);
+root.render(
+  <LoginProvider>
+    <RouterProvider router={approuter} />
+  </LoginProvider>
+);
